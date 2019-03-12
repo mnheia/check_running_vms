@@ -18,13 +18,16 @@ STATE_UNKNOWN=3
 desired_vms=$1
 #echo $desired_vms
 
-if ! [ -x "$(command -v virsh)" ]; then
-  echo "Error: virsh is not installed."
-  exit 1
+if [ -x "$(command -v virsh)" ]; then
+        running_vms=$(virsh list --all | egrep "running|idle" | grep -v Domain-0 | wc -l)
+elif [ -x "$(command -v xe)" ]; then
+        running_vms=$(xe vm-list | egrep "running|idle" | wc -l)
+else
+        echo "Error: virsh or xe is not installed."
+        exit 1
 fi
 
-running_vms=$(virsh list --all | egrep "running|idle" | grep -v Domain-0 | wc -l)
-#echo $running_vms
+echo $running_vms
 
 if [[ $running_vms -lt $desired_vms || $running_vms == 0  ]]; then
         echo "CRITICAL: Number of running VMs is $running_vms - less than desired |vms=$running_vms"
