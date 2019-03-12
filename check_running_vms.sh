@@ -27,7 +27,7 @@ else
         exit 1
 fi
 
-echo $running_vms
+#echo $running_vms
 
 if [[ $running_vms -lt $desired_vms || $running_vms == 0  ]]; then
         echo "CRITICAL: Number of running VMs is $running_vms - less than desired |vms=$running_vms"
