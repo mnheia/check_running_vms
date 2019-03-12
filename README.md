@@ -21,7 +21,7 @@ command[check_running_vms]=sudo /usr/lib64/nagios/plugins/check_running_vms.sh 4
 Where number of running VMs should be 4 - replace number with the number of VMs that should be running.
 
 # Requirements
-- libvirt-client
+- virsh or xe
 
 # Bugs
 Please report any bugs or feature requests through the web interface at https://github.com/mnheia/check_running_vms/issues
