@@ -1,4 +1,4 @@
-Copyright (c) 2018, Mitja Sovec <mitja@sovec.si>
+Copyright (c) 2018, Mnheia <mnheia@gmail.com>
 
 # check_running_vms
 A Nagios plugin to check number of running VMs on KVM or XEN environment
