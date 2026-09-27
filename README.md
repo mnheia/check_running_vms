@@ -1,7 +1,7 @@
 Copyright (c) 2018, Mnheia <mnheia@gmail.com>
 
 # check_running_vms
-A Nagios plugin to check number of running VMs on KVM or XEN environment
+A Nagios plugin to check the number of running VMs in KVM or XEN environments.
 
 # Example
 ## Server Side
@@ -18,9 +18,12 @@ define service {
 ```
 command[check_running_vms]=sudo /usr/lib64/nagios/plugins/check_running_vms.sh 4
 ```
-Where number of running VMs should be 4 - replace number with the number of VMs that should be running.
+
+The final argument is the expected number of running VMs. In this example, exactly 4 VMs should be running.
 
 # Requirements
+- Bash
+- awk
 - virsh or xe
 
 # Bugs
